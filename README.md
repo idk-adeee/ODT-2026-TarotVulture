@@ -52,14 +52,14 @@ By the final review, this README should clearly show:
 # 1. Team Identity
 
 ## 1.1 Studio / Group Name
-`[Enter your group name]`
+`Groupm 10 TarotVulture`
 
 ## 1.2 Team Members
 
 | Name | Primary Role | Secondary Role | Strengths Brought to the Project |
 |---|---|---|---|
-| `[Student 1]` | `[Electronics / Coding / App / Fabrication / Mechanics]` | `[Role]` | `[Write here]` |
-| `[Student 2]` | `[Electronics / Coding / App / Fabrication / Mechanics]` | `[Role]` | `[Write here]` |
+| `[Raavee Uttekar]` | `[Electronics / Fabrication / Mechanics]` | `[App]` | `[Write here]` |
+| `[Student 2]` | `[Electronics / Coding / App]` | `[Mechanics]` | `[write here]` |
 
 ## 1.3 Project Title
 `[Enter the title of your project]`
