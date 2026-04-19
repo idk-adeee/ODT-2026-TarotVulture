@@ -62,10 +62,10 @@ By the final review, this README should clearly show:
 | `[Aditi Rathod]` | `[Electronics / Coding]` | `[Mechanics]` | `system integration / audio logic` |
 
 ## 1.3 Project Title
-`[Tarot Fortune Telling Machine]`
+`Tarot Fortune Telling Machine`
 
 ## 1.4 One-Line Pitch
-`[A theatrical interactive vulture puppet that gives RFID-based tarot fortunes or random magic 8 ball style yes/no/maybe answers using motion, sound, and physical character performance.]`
+`A theatrical interactive vulture puppet that gives RFID-based tarot fortunes or random magic 8 ball style yes/no/maybe answers using motion, sound, and physical character performance.`
 
 ## 1.5 Expanded Project Idea
 In 1–2 paragraphs, explain:
@@ -75,8 +75,8 @@ In 1–2 paragraphs, explain:
 - what technologies are involved.
 
 **Response:**  
-`[Our project is a playful fortune-telling machine built around a vulture puppet character. The system uses an ESP32 with MicroPython, RFID tarot cards, multiple servo motors, a limit switch, and laptop-based audio playback to create the illusion of a living creature that wakes up, reacts, speaks, and delivers fortunes.
-The experience is designed to feel strange, dramatic, and memorable rather than practical. A participant can either choose tarot mode, where they present a tarot card and receive a random fortune linked to that card, or a yes/no/maybe mode, where they ask the bird a question and receive a mysterious spoken response. The project combines electronics, mechanics, coding, and sound design to create a playful interactive object with strong personality.]`
+`Our project is a playful fortune-telling machine built around a vulture puppet character. The system uses an ESP32 with MicroPython, RFID tarot cards, multiple servo motors, a limit switch, and laptop-based audio playback to create the illusion of a living creature that wakes up, reacts, speaks, and delivers fortunes.
+The experience is designed to feel strange, dramatic, and memorable rather than practical. A participant can either choose tarot mode, where they present a tarot card and receive a random fortune linked to that card, or a yes/no/maybe mode, where they ask the bird a question and receive a mysterious spoken response. The project combines electronics, mechanics, coding, and sound design to create a playful interactive object with strong personality.`
 
 ---
 
