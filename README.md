@@ -58,7 +58,7 @@ By the final review, this README should clearly show:
 
 | Name | Primary Role | Secondary Role | Strengths Brought to the Project |
 |---|---|---|---|
-| `[Raavee Uttekar]` | `Fabrication / Mechanics / Electronics` |  `coding` | `Electrical knowledge, Material knowledge, physical assembly, mechanism problem-solving`
+| `[Raavee Uttekar]` | `Fabrication / Mechanics / Electronics` |  `coding` | `Material knowledge, physical assembly, mechanism problem-solving, device component connections testing`
 | `[Aditi Rathod]` | `Electronics / Coding` | `[Mechanics]` | `System integration, audio logic, interaction design` 
 
 ## 1.3 Project Title
@@ -309,10 +309,10 @@ Add a sketch with labels showing:
 
 | Dimension | Value |
 |---|---|
-| Length | `[Write here]` |
-| Width | `[Write here]` |
-| Height | `[Write here]` |
-| Estimated weight | `[Write here]` |
+| Length | `[27cm]` |
+| Width | `[12cm]` |
+| Height | `[40cm]` |
+| Estimated weight | `[1 kg]` |
 
 ---
 
@@ -356,8 +356,8 @@ If your project includes mechanical motion, document the digital planning before
 
 | Tool Used | File / Link | What Was Tested |
 |---|---|---|
-| `[Fusion 360 / Tinkercad / other]` | `[Link or screenshot]` | `[What did you validate?]` |
-| `[Tool]` | `[Link or screenshot]` | `[What did you validate?]` |
+| `[not applicable]` | `[Link or screenshot]` | `[What did you validate?]` |
+| `[not applicable]` | `[Link or screenshot]` | `[What did you validate?]` |
 
 ## 8.5 Changes After Digital Testing
 What changed after the CAD, animation, or simulation stage?
@@ -534,8 +534,8 @@ Insert a sketch or screenshot of the app interface.
 
 | Item | Quantity | In Kit? | Need to Buy? | Estimated Cost | Material / Spec | Why This Choice? |
 |---|---:|---|---|---:|---|---|
-| `[ESP32]` | `1` | `Yes` | `No` | `0` | `[Spec]` | `[Reason]` |
-| `[Item]` | `[Qty]` | `[Yes/No]` | `[Yes/No]` | `[Cost]` | `[Spec]` | `[Reason]` |
+| `[LM2596 Buck Converter]` | `1` | `no` | `yes` | `130` | `[Step-down 5V regulator]` | `[Stable power supply for servos]` |
+| `[foil]` | `[1 roll]` | `[No]` | `[Yes]` | `[100]` | `[foil]` | `[for giving structure to the puppet]` |
 | `[Item]` | `[Qty]` | `[Yes/No]` | `[Yes/No]` | `[Cost]` | `[Spec]` | `[Reason]` |
 
 ## 12.2 Material Justification
@@ -548,32 +548,34 @@ Examples:
 - Why bearing instead of a plain shaft hole?
 
 **Response:**  
-`[Write here]`
+`[The animatronics and puppet structure were intentionally built using cardboard, tape, glue, and hand-worked materials to preserve a sense of rawness and imperfection. Since the project aims to feel strange, alive, and slightly uncanny, a handmade aesthetic supports the illusion better than a clean, machine-finished object.
+These materials also allow for fast iteration and intuitive making. Parts can be cut, adjusted, and reassembled quickly based on how the puppet behaves. In contrast, 3D printing and laser cutting require precise pre-planning and slower production cycles, which limit flexibility during experimentation.
+From a mechanical perspective, cardboard structures are lightweight and forgiving, making them more suitable for servo-driven motion. This reduces load on the motors and makes it easier to tweak or repair internal mechanisms.]`
 
 ## 12.3 Items to Purchase Separately
 `We selected an ESP32 because it is flexible, easy to work with in MicroPython, and has enough GPIO for the project. Servo motors were chosen because they are simple to control for puppet-style motion. The MFRC522 was chosen because it allows each tarot card to act as a physical trigger with a unique UID. The LM2596 was used because the servo motors required a more stable 5V supply than the ESP32 could safely provide.`
 
 | Item | Why Needed | Purchase Link | Latest Safe Date to Procure | Status |
 |---|---|---|---|---|
-| `[Item]` | `[Reason]` | `[Link]` | `[Date]` | `[Pending / Ordered / Received]` |
+| `[LM2596 Buck Converter]` | `[Stable power for servos]` | `[Link]` | `[13 April 2026]` | `[Received]` |
 | `[Item]` | `[Reason]` | `[Link]` | `[Date]` | `[Pending / Ordered / Received]` |
 
 ## 12.4 Budget Summary
 
 | Budget Item | Estimated Cost |
 |---|---:|
-| Electronics | `[Cost]` |
+| Electronics | `[130]` |
 | Mechanical parts | `[Cost]` |
 | Fabrication materials | `[Cost]` |
-| Purchased extras | `[Cost]` |
+| Purchased extras | `[100]` |
 | Contingency | `[Cost]` |
-| **Total** | `[Cost]` |
+| **Total** | `[230]` |
 
 ## 12.5 Budget Reflection
 If your cost is too high, what can be simplified, removed, substituted, or shared?
 
 **Response:**  
-`[Write here]`
+`[Our cost is not too high as we used recycled materials like table tennis balls from the gym, old cradboard boxes etc.]`
 
 ---
 
@@ -590,7 +592,7 @@ Include:
 - how documentation will be maintained.
 
 **Response:**  
-`We divided work based on strengths but kept testing and problem-solving collaborative. Mechanical and fabrication decisions were led by the teammate working more closely with the physical model, while electronics and code integration were led by the teammate working more closely with MicroPython and laptop scripting. Major decisions were tested physically before being accepted, especially when hardware behavior was uncertain.`
+`We divided work based on strengths but kept testing and problem-solving collaborative. Mechanical, electronics and fabrication decisions were led by the teammate working more closely with the physical model, while code integration were led by the teammate working more closely with MicroPython and laptop scripting. Major decisions were tested physically before being accepted, especially when hardware behavior was uncertain.`
 
 `We regularly adjusted the plan when parts failed or behaved differently than expected. The README acts as process documentation, not only a final summary, so major changes, failures, and fixes should be added as evidence of iteration.`
 
@@ -598,26 +600,26 @@ Include:
 
 | Task ID | Task | Owner | Estimated Hours | Deadline | Dependency | Status |
 |---|---|---|---:|---|---|---|
-| T1 | `[Finalize concept]` | `[Name]` | `2` | `[Date]` | `None` | `To Do` |
-| T2 | `[Complete BOM]` | `[Name]` | `1` | `[Date]` | `T1` | `To Do` |
-| T3 | `[Test electronics]` | `[Name]` | `2` | `[Date]` | `T1` | `To Do` |
-| T4 | `[Build structure]` | `[Name]` | `4` | `[Date]` | `T1` | `To Do` |
-| T5 | `[Write control code]` | `[Name]` | `4` | `[Date]` | `T3` | `To Do` |
-| T6 | `[Integrate system]` | `[Name]` | `4` | `[Date]` | `T4, T5` | `To Do` |
-| T7 | `[Playtest]` | `[Name]` | `2` | `[Date]` | `T6` | `To Do` |
-| T8 | `[Refine and document]` | `[Name]` | `3` | `[Date]` | `T7` | `To Do` |
+| T1 | `[Finalize concept]` | `[aditi and raavee]` | `2` | `[11 april]` | `none` | `done` |
+| T2 | `[Complete BOM]` | `[raavee]` | `1.5` | `[12 april]` | `T1` | `done` |
+| T3 | `[Test electronics]` | `[raavee]` | `3` | `[12 april]` | `T2` | `done` |
+| T4 | `[Build structure]` | `[raavee]` | `10` | `[15 april]` | `T3` | `done` |
+| T5 | `[Write control code]` | `[aditi]` | `4` | `[15 april]` | `T4` | `done` |
+| T6 | `[Integrate system]` | `[aditi]` | `4` | `[17 april]` | `T4, T5` | `done` |
+| T7 | `[Playtest]` | `[aditi and raavee]` | `6` | `[19 april]` | `T6` | `done` |
+| T8 | `[Refine and document]` | `[raavee and aditi]` | `3` | `[19 april]` | `T7` | `done` |
 
 ## 13.3 Responsibility Split
 
 | Area | Main Owner | Support Owner |
 |---|---|---|
-| Concept and gameplay | `[Name]` | `[Name]` |
-| Electronics | `[Name]` | `[Name]` |
-| Coding | `[Name]` | `[Name]` |
+| Concept and gameplay | `[raavee]` | `[aditi]` |
+| Electronics | `[raavee]` | `[aditi]` |
+| Coding | `[aditi]` | `[raavee]` |
 | App | `[Name]` | `[Name]` |
-| Mechanical build | `[Name]` | `[Name]` |
-| Testing | `[Name]` | `[Name]` |
-| Documentation | `[Name]` | `[Name]` |
+| Mechanical build | `[raavee]` | `[aditi]` |
+| Testing | `[aditi]` | `[raavee]` |
+| Documentation | `[raavee]` | `[aditi]` |
 
 ---
 
