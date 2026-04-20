@@ -58,7 +58,7 @@ By the final review, this README should clearly show:
 
 | Name | Primary Role | Secondary Role | Strengths Brought to the Project |
 |---|---|---|---|
-| `[Raavee Uttekar]` | `Fabrication / Mechanics` |  `Electronics` | `Material knowledge, physical assembly, mechanism problem-solving`
+| `[Raavee Uttekar]` | `Fabrication / Mechanics / Electronics` |  `coding` | `Electrical knowledge, Material knowledge, physical assembly, mechanism problem-solving`
 | `[Aditi Rathod]` | `Electronics / Coding` | `[Mechanics]` | `System integration, audio logic, interaction design` 
 
 ## 1.3 Project Title
@@ -244,7 +244,7 @@ Check all that apply.
 - [x] Sound-based
 - [x] Light-based
 - [ ] Screen/UI-based
-- [x] Fabricated structure
+- [ ] Fabricated structure
 - [x] Game logic based
 - [x] Installation / tabletop experience
 - [ ] Other: `Not applicable`
