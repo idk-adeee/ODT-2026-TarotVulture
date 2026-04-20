@@ -708,10 +708,11 @@ Expected outcomes:
 
 | What Needs Testing | How You Will Test It | Success Condition |
 |---|---|---|
-| `[Bluetooth connection]` | `[Method]` | `[What counts as success?]` |
-| `[Mechanism movement]` | `[Method]` | `[What counts as success?]` |
-| `[Sensor behavior]` | `[Method]` | `[What counts as success?]` |
-| `[App communication]` | `[Method]` | `[What counts as success?]` |
+| `Switch input and press timing` | `Test short press and long press repeatedly while watching the mode printed in the serial monitor.` | `Short press always starts yes/no/maybe mode and long press always starts tarot mode.` |
+| `Head, beak, and eye movement` | `Run isolated servo test files first, then run the full system and observe motion during wake-up, speaking, blinking, and reset.` | `The motions are visible, safe, and repeatable without stalling or overheating the servos.` |
+| `RFID sensor behavior` | `Scan each tarot card several times using the RFID test file and then in the full interaction loop.` | `Each card UID is read consistently and triggers the correct mapped fortune behavior.` |
+| `Laptop audio communication` | `Run the laptop Python script, trigger each command from the ESP32, and watch whether the correct intro, fortune, yes/no answer, and outro files play.` | `The laptop receives commands reliably, plays the correct audio, sends amplitude values during playback, and returns DONE at the end.` |
+
 
 # 16.2 Playtesting Plan
 
@@ -728,13 +729,14 @@ Expected outcomes:
 
 | Date | Problem Found | Type | What You Tried | Result | Next Action |
 |---|---|---|---|---|---|
-| `[Add actual date]` | `RFID reader was not detecting cards at first` | `Technical` | `Rechecked wiring, added the correct MFRC522 library, and tested with a dedicated card-reading script.` | `Worked` | `Store all card UIDs and map them to audio files.` |
-| `[Add actual date]` | `The same card kept retriggering multiple fortune files` | `Technical` | `Added card locking and delayed removal logic so one scan would only trigger once.` | `Worked` | `Use the more stable card-read approach in the final interaction loop.` |
-| `[Add actual date]` | `Beak moved during intro but not during fortune playback` | `Technical` | `Fixed the playback event reset logic in the laptop script so amplitude data was sent during every audio playback.` | `Worked` | `Keep amplitude-sync playback for all spoken audio.` |
-| `[Add actual date]` | `Single head servo could lift the head in testing but failed under real load` | `Mechanical` | `Tested smaller movement ranges, considered a stepper motor, and later tried dual head servos.` | `Partly worked` | `Use the most reliable head movement setup for the final version.` |
-| `[Add actual date]` | `Beak servo overheated during testing` | `Technical / Mechanical` | `Reduced range, slowed movement, added delay before beak movement, and treated the beak as optional until stable.` | `Partly worked` | `Monitor the beak carefully and keep a fallback option.` |
-| `[Add actual date]` | `Eye testing caused unexpected movement in other servos` | `Technical / Wiring` | `Ran isolated test files and disconnected unrelated servo signal wires during testing.` | `Worked` | `Keep tests isolated and only reconnect parts during integration.` |
-| `[Add actual date]` | `Needed an additional mode beyond tarot` | `Design / Gameplay` | `Added a yes/no/maybe mode triggered by short press, with tarot mode using long press.` | `Worked` | `Refine the spoken prompts and make the two modes clear to users.` |
+| `6/4/26` | `RFID reader was not detecting cards at first` | `Technical` | `Rechecked wiring, added the correct MFRC522 library, and tested with a dedicated card-reading script.` | `Worked` | `Store all card UIDs and map them to audio files.` |
+| `7/4/26` | `The same card kept retriggering multiple fortune files` | `Technical` | `Added card locking and delayed removal logic so one scan would only trigger once.` | `Worked` | `Use the more stable card-read approach in the final interaction loop.` |
+| `10/4/26` | `Beak moved during intro but not during fortune playback` | `Technical` | `Fixed the playback event reset logic in the laptop script so amplitude data was sent during every audio playback.` | `Worked` | `Keep amplitude-sync playback for all spoken audio.` |
+| `16/4/26` | `Single head servo could lift the head in testing but failed under real load` | `Mechanical` | `Tested smaller movement ranges, considered a stepper motor, and later tried dual head servos.` | `Partly worked` | `Use the most reliable head movement setup for the final version.` |
+| `17/4/26` | `Beak servo overheated during testing` | `Technical / Mechanical` | `Reduced range, slowed movement, added delay before beak movement, and treated the beak as optional until stable.` | `Partly worked` | `Monitor the beak carefully and keep a fallback option.` |
+| `18/4/26` | `Eye testing caused unexpected movement in other servos` | `Technical / Wiring` | `Ran isolated test files and disconnected unrelated servo signal wires during testing.` | `Worked` | `Keep tests isolated and only reconnect parts during integration.` |
+| `19/4/26` | `Needed an additional mode beyond tarot` | `Design / Gameplay` | `Added a yes/no/maybe mode triggered by short press, with tarot mode using long press.` | `Worked` | `Refine the spoken prompts and make the two modes clear to users.` |
+
 
 
 ## 16.4 Playtesting Notes
@@ -793,11 +795,12 @@ Example:
 
 | Version | Date | What Changed | Why |
 |---|---|---|---|
-| `v1` | `[Add date]` | `Basic RFID scanning and random tarot audio playback worked` | `To prove the core fortune-telling interaction was possible` |
-| `v2` | `[Add date]` | `Added intro/outro flow and coordinated puppet motion` | `To make the system feel like a character instead of only a sensor trigger` |
-| `v3` | `[Add date]` | `Added amplitude-based beak sync from laptop audio` | `To make speech motion feel more convincing` |
-| `v4` | `[Add date]` | `Added short-press yes/no/maybe mode and long-press tarot mode` | `To increase replay value and create two different experiences in one project` |
-| `v5` | `[Add date]` | `Revised head mechanism and tested safer motion setups` | `Because the original mechanical setup was unreliable under load` |
+| `v1` | `7/4/26` | `Basic RFID scanning and random tarot audio playback worked` | `To prove the core fortune-telling interaction was possible` |
+| `v2` | `9/4/26` | `Added intro/outro flow and coordinated puppet motion` | `To make the system feel like a character instead of only a sensor trigger` |
+| `v3` | `10/4/26` | `Added amplitude-based beak sync from laptop audio` | `To make speech motion feel more convincing` |
+| `v4` | `19/4/26` | `Added short-press yes/no/maybe mode and long-press tarot mode` | `To increase replay value and create two different experiences in one project` |
+| `v5` | `16/4/26` | `Revised head mechanism and tested safer motion setups` | `Because the original mechanical setup was unreliable under load` |
+
 
 
 ---
@@ -813,20 +816,22 @@ Describe the final version of your project.
 - `Laptop-based audio playback made it easier to use rich sound files and synchronize the beak with speech.`
 
 ## 18.2 What Works Well
-- `[Point 1]`
-- `[Point 2]`
-- `[Point 3]`
+- `The project creates a strong character-based experience instead of feeling like a simple electronics demo.`
+- `The RFID tarot mode works well because physical cards make the interaction feel ritualistic and engaging.`
+- `Laptop-based audio playback with amplitude sync helps the beak movement feel more believable and expressive.`
+
 
 ## 18.3 What Still Needs Improvement
 - `Mechanical reliability is still the biggest challenge, especially under real puppet load.`
-- `The eye mechanism needs more refinement and safe range tuning.`
+- `The head mechanism needs more refinement and safe range tuning.`
 - `The final user guidance could be clearer so first-time users instantly understand the two modes.`
 
 ## 18.4 What Changed From the Original Plan
 How did the project change from the initial idea?
 
 **Response:**  
-`[Write here]`
+`The project began as a tarot card fortune-telling machine, but during development it expanded into a two-mode system that also includes a yes/no/maybe oracle interaction. The technical implementation also changed from a more self-contained embedded idea to a split system where the ESP32 handles interaction and motion while a laptop handles audio playback. Mechanically, the original movement plan had to be revised several times because some servos behaved differently once attached to the puppet body, especially the head and beak mechanisms. As a result, the final project became more iterative, more flexible, and more focused on reliability than the original plan.`
+
 
 ---
 
@@ -851,7 +856,7 @@ What did you learn about:
 - integration?
 
 **Response:**  
-`[Write here]`
+`We learned that physical computing projects depend just as much on wiring quality, power stability, and mechanical load as they do on code. In electronics, we learned the importance of using a separate regulated 5V supply for motors and keeping all grounds common. In coding, we learned how useful it is to break the project into smaller test scripts before combining everything into one main program. In mechanisms, we learned that movement which looks fine during isolated testing can fail once attached to the actual puppet body. In fabrication and integration, we learned that real-world assembly forces constant adjustment, and that reliability often matters more than making every original idea work exactly as planned.`
 
 ## 19.3 Design Reflection
 What did you learn about:
@@ -863,37 +868,38 @@ What did you learn about:
 - iteration?
 
 **Response:**  
-`[Write here]`
+`We learned that designing for play means creating an experience, not just a system that works. The timing of the bird waking up, the suspense before an answer, the randomness of the responses, and the character of the motion all helped make the interaction more enjoyable. We also learned that clarity is very important: even a playful mysterious object still needs clear prompts and understandable interaction steps. Physical interaction made the experience stronger because the player presses a real switch, places a real card, and watches a real puppet react. Iteration was essential, because each improvement came from observing what felt awkward, robotic, or unclear and then refining it.`
 
 ## 19.4 If You Had One More Week
 What would you improve next?
 
 **Response:**  
-`[Write here]`
+`If we had one more week, we would improve the mechanical reliability of the puppet, especially the head and eye systems, and polish the final movement so it feels even more natural. We would also improve the physical finish of the build, make the mode selection clearer for first-time users, and add more playtesting so the final experience feels smoother and more exhibition-ready.`
 
 ---
 
 # 20. Final Submission Checklist
 
 Before submission, confirm that:
-- [ ] Team details are complete
-- [ ] Project description is complete
-- [ ] Inspiration sources are included
-- [ ] Player journey is written
+- [x] Team details are complete
+- [x] Project description is complete
+- [x] Inspiration sources are included
+- [x] Player journey is written
 - [ ] Sketches are added
 - [ ] BOM is complete
 - [ ] Purchase list is complete
 - [ ] Budget summary is complete
-- [ ] Mechanical planning is documented if applicable
-- [ ] App planning is documented if applicable
+- [x] Mechanical planning is documented if applicable
+- [x] App planning is documented if applicable
 - [ ] Code flowchart is added
-- [ ] Task breakdown is complete
-- [ ] Weekly logs are updated
-- [ ] Risk register is complete
-- [ ] Testing log is updated
-- [ ] Playtesting notes are included
+- [x] Task breakdown is complete
+- [x] Weekly logs are updated
+- [x] Risk register is complete
+- [x] Testing log is updated
+- [x] Playtesting notes are included
 - [ ] Build photos are included
-- [ ] Final reflection is written
+- [x] Final reflection is written
+
 
 ---
 
